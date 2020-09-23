@@ -2,8 +2,9 @@ package com.example.diceroller
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,12 @@ class MainActivity : AppCompatActivity() {
         rollButton.text = "Let's Roll"
 
         rollButton.setOnClickListener {
-            Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
+            rollDice()
         }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random.nextInt(6) + 1
+        result_text.text = randomInt.toString()
     }
 }
